@@ -1,0 +1,80 @@
+애견 쇼핑몰 
+
+1. 쇼핑몰 종류 선택 
+2. 쇼핑몰 이름을 선정하고 어울리는 로고 제작 
+3. 카테고리 구조 선정  최신제품 / 인기상품 //
+   왼쪽 카테고리 
+4. 하단 상품 리스트 16개 
+5. 카테고리 이미지에 들어갈 이미지 준비 
+
+woodmart.xtemos.com
+
+ban1
+Purina® Friskies® Classic Pate Cat Food
+$0.48
+
+
+ban2
+Thrills & Chills Halloween
+Shark Pet Costume 
+$16.99
+
+
+ban3
+DC Comics™ Batman Pet Costume
+$23.99
+
+item1
+BLUE Wilderness® Adult Dog Food - Grain Free, Natural
+canned food
+$2.59
+
+item2
+natural food
+Simply Nourish™ Adult Dog Food - Natural, Chicken & Brown Rice
+$25.29
+
+item3
+Purina® TIDY CATS® 24/7 Performance Cat Litter - Clumping, Multi Cat
+litter
+$16.99
+
+item4
+MILK-BONE® Original Dog Snacks
+treats
+$11.95
+
+item5
+21st Century™ Essential Pet™ Adult Hip & Joint Ages 5+ Dog Chewables
+supplements
+$29.99
+
+item6
+KONG® Puppy Toy - Treat Dispensing (COLOR VARIES)
+$11.99
+
+item7
+Top Paw® Dog Pads
+dog pads
+$37.99
+
+item8
+Grreat Choice® Double Door Wire Dog Crate
+crates
+$114.99
+
+중간 배너
+Top Fin® Essentials Aquarium Starter Kit
+$149.99
+3.7(112)
+
+
+Seresto® Flea & Tick Dog Collar
+$54.99 $72.25
+3.5(205)
+
+People Saving pets
+At PetSmart, we believe in the power of pet adoption. That's why we never sell dogs or cats. Together with PetSmart Charities, we help save over 1,300 pets a day through adoption.
+
+
+

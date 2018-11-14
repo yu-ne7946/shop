@@ -1,0 +1,104 @@
+/* 공통사항 */
+.wrap{max-width:1200px; margin:0 auto;}
+.arrow_down{font-size:0.5em !important; }
+.txt_green{color:#9944bc;}
+
+/* HEADER */
+header {background-color:#9944bc; font-size:1rem; font-weight:400; color:#fff;}
+header > div{width:100%;}
+.hd_lt{float:left;}
+.hd_lt li{display:inline-block;  border-left:1px solid rgba(255,255,255,0.3); }
+.hd_rt{float:right;}
+.hd_rt li{float:right; border-right:1px solid rgba(255,255,255,0.3);}
+.hd_rt li .fa{padding-right:0.5em;}
+header>div li{padding:1.3em 1.3em; font-size:0.9em;}
+header>div li:not(:nth-child(3)){cursor:pointer;}
+
+/* tos */
+.tops{width:100%; padding:30px 0; font-size:1rem;}
+.logos{width:270px; float:left; padding-right:20px; padding-top:6px;}
+.searchs{width:calc(100% - 540px); /*100%sㄴ 1200px 내 부모인 tops의 width1200px*/ float:left;}
+.searchs >li {border:1px solid #ccc; float:left; height:44px; }
+.searchs >li:nth-child(1) {width:calc(100% - 210px); padding-top:5px;}
+.searchs >li:nth-child(1) >input{border:none;}
+.searchs >li:nth-child(1) >input:focus{outline:none;}
+.searchs >li:nth-child(2) {width:calc(166px); text-align:center; line-height:42px;/*보더 1px 때문에 아래 위로 1px 씩 빼서*/ margin-left:-1px; position:relative;}
+ul.search_catelist{display:none; border: 1px solid #ccc; position:absolute; top:42px; right:-1px; min-width:166px;/*border의 끝이 기준점이 아니라 컨텐츠의 끝이 기준점이다. */
+background-color:#fff; box-shadow:0 2px 2px rgba(0,0,0,0.3);}
+ul.search_catelist>li{padding:0.5em 0.5em 0.5em 1.5em; color:#999; line-height:1.5em;/*line-height상속 값 재설정 */
+ text-align:left;}
+.searchs >li:nth-child(3) {width:44px; margin-left:-1px;/*겹치느 부분 없애기*/ text-align:center; line-height:42px; font-size:1.5em; color:#ccc;}
+
+.logins{width:270px; float:right;}
+.logins >li{float:right; line-height:42px; text-align:right; padding-left:10px; font-size:1.25em;}
+ .logins .fa{font-size:1.25em;} /*폰트를 두번 써주면 더해지나??*/
+ .logins >:nth-child(2){position:relative;} 
+
+.logins .w3-badge{padding:2px 4px; line-height:1em; font-size:0.75em; background-color:#84b736;
+position:absolute; top:0; right:-0.5em;}
+
+/* section */
+.mains{width:100%; border-top:1px solid #ccc; border-bottom:1px solid #ccc; height:52px;
+       font-size:1.25rem;}
+.navs{position:relative;}
+.navs> li:not(.menu_modal){float:left; height:50px; line-height:50px;}
+.cate_top{width:270px; background-color:#9944bc; color:#fff; padding:0 1em; font-weight:400px;}
+.cate_top>:first-child{font-size:1.25em; margin-right:0.5em;}
+
+.cate_top>:last-child{float:right;}
+
+.menu{width:calc(100% - 540px);}
+.menu .arrow_down{color:#ccc;}
+.navs> .menu >ul> li{float:left; margin-left:1em; position:relative;}
+.navs >.menu >ul> li:nth-child(1),
+.navs >.menu >ul> li:nth-child(2)
+{position:static !important;} /*기본값 relative를 없앰. 아무것도 안준 상태*/
+.menu > ul > li > span{color:#ccc;}
+.etc{width:270px; text-align:right;}
+.etc >:nth-child(2){padding:0 0.5em;}
+
+.menu > ul >li {cursor:pointer;}
+.menu_modal{background-color:#fff; top:51px; left:0; position:absolute !important; width:100%; display:none; padding:3em 0; border-bottom:1px solid #999;} 
+.menu_modal a{text-decoration:none;}
+.menu_modal li{line-height:2.5em; position:relative;}
+.menu_modal .tooltip{position:absolute; padding:0.15em; top:-1.20rem; left:0px; opacity:1; color:#fff; font-size:0.6em;}
+.menu_modal .tooltip >div{width:8px; height:8px; transform:rotate(55deg); position:absolute; left:20%; bottom:-3px;}
+
+
+#modal0 > ul{width:20%; padding:2%; float:left; }
+#modal0> ul>:first-child{box-shadow: 0 0 3px rgba(0,0,0,0.3); }
+#modal0 > ul>:last-child{margin:0.5em 0; text-align:center; color:#333; font-weight:400;}
+#modal1>ul{padding:2%; float:left;}
+
+#modal1 .title a{font-weight:400; color:#222;}
+#modal1 .cont a{color:#999; font-size:0.9em;}/*기본값은 link */
+#modal1 a:hover{color:#9944bc;}
+
+#modal2{width:802px; position:absolute; border:1px solid #ccc; margin-top:-1px; padding:0; background-color:#fafafa;}
+#modal2 >.blogs{width:490px; float:left;  padding:40px 30px; border-right:1px solid #ccc; background-color:#fff;}
+#modal2 >.blogs >ul{width:50%; float:left;  line-height:2.5em;}
+.blogs .title a{font-weight:400; color:#222;}
+.blogs .sub a{color:#999; font-size:0.9em;}
+.blogs a:hover{color:#9944bc;}
+#modal2 > .recents{width:310px; float:right; background-color:#fafafa; padding:40px 30px;}
+.recents .post{line-height:1em; border-bottom:1px solid #ccc; padding:1em 0;}
+.recents .title{font-weight:400; color:#222; line-height:2.5em;}
+.post > img{float:left; width:35%;}
+.post > div{float:right; width:60%; line-height:1.5em;}
+.post .post_title{ color:#666; }
+.post .post_date{color:#aaa; font-size:0.75em;}
+.post .post_cnt{color:#999; font-size:0.75em;}
+.post .post_comment{color:#999; font-size:0.75em;}
+
+#modal3{width:800px; position:absolute; border:1px solid #ccc; margin-top:-1px; padding:3em 2em; background-color:#fff;}
+#modal3 > ul{width:25%; float:left;}
+#modal3 .title a{font-weight:400; color:#222;}
+#modal3 .cont a{color:#999; font-size:0.9em;}/*기본값은 link */
+#modal3 a:hover{color:#9944bc;}
+
+
+#modal4{width:800px; position:absolute; border:1px solid #ccc; margin-top:-1px; padding:3em 2em; background-color:#fff;}
+#modal4 > ul{width:25%; float:left;}
+#modal4 .title a{font-weight:400; color:#222;}
+#modal4 .cont a{color:#999; font-size:0.9em;}/*기본값은 link */
+#modal4 a:hover{color:#9944bc;}

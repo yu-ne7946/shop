@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AllAboutPet</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/main_backup181019.css">
+  <link rel="stylesheet" href="../css/font-awesome.min.css" />
+  <script defer src="/__/firebase/5.5.2/firebase-app.js"></script>
+  <script defer src="/__/firebase/5.5.2/firebase-auth.js"></script>
+  <script defer src="/__/firebase/5.5.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/5.5.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/5.5.2/firebase-storage.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--제이쿼리는 자바스크립트를 쉽게 쓸 수 있는 라이브러리 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style media="screen">
+
+  </style>
+</head>
+
+<body>
+
+  <header class=>
+    <div class="clear wrap">
+      <ul class="hd_lt">
+        <li>ENGLISH∨</li>
+        <li>COUNTRY∨</li>
+        <li>FREE SHIPPING FOR ALL ORDERS OF $150</li>
+      </ul>
+      <ul class="hd_rt">
+        <li>FAQS</li>
+        <li>CONTACT US</li>
+        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> NEWSLETTER</li>
+        <li><i class="fa fa-facebook" aria-hidden="true"></i>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+          <i class="fa fa-google-plus" aria-hidden="true"></i>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+          <i class="fa fa-pinterest" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="tops wrap clear">
+    <!-- div.logo+ul.searchs>li*3^ul.logins>li*4 -->
+    <div class="logos">
+      <img src="../images/logo3.png" alt="" class="logo img">
+    </div>
+    <ul class="searchs">
+      <li><input type="text" class="w3-input" name="search" placeholder="Search for products"></li>
+      <li>
+        <span class="hand">SELECT CATEGORY <span class="arrow_down">v</span></span>
+        <ul class="search_catelist">
+          <li>Uncategorized</li>
+          <li>Clocks</li>
+          <li>Lighting</li>
+          <li>Furniture</li>
+          <li>Accessories</li>
+          <li>Cooking</li>
+          <li>Toys</li>
+        </ul>
+      </li>
+      <li>
+        <span class="fa fa-search"></span>
+      </li>
+    </ul>
+    <ul class="logins">
+      <li>$0.00</li>
+      <li><span><i class="fa fa-shopping-basket" aria-hidden="true"></span></i>
+        <span class="w3-badge">0</span>
+      </li>
+      <li><i class="fa fa-heart-o" aria-hidden="true"></i></li>
+      <li>LOGIN/REGISTER</li>
+    </ul>
+  </section>
+
+
+  <section class="mains">
+
+    <ul class="navs wrap clear">
+      <li class="cate_top">
+        <span class="fa fa-bars"></span>
+        <span>BROUWSE CATEGORIES</span>
+        <span class="arrow_down">v</span>
+      </li>
+
+      <li class="menu">
+        <ul>
+          <li class="txt_green">
+            HOME <span class="arrow_down">v</span>
+            <div id="modal0" class="menu_modal clear">
+
+            </div>
+          </li>
+          <li>SHOP <span class="arrow_down clear">v</span>
+            <div id="modal1" class="menu_modal clear">
+
+            </div>
+          </li>
+          <li>
+            BLOG <span class="arrow_down">v</span>
+            <div id="modal2" class="menu_modal clear">
+                <div class="blogs"></div>
+                <div class="recents">
+                  <div class="title">RECENT POSTS</div>
+                </div>
+            </div>
+          </li>
+          <li>
+            PAGES <span class="arrow_down">v</span>
+            <div id="modal3" class="menu_modal clear">
+              
+          </li>
+          <li>
+            ELEMENTS<span class="arrow_down">v</span>
+            <div id="modal4" class="menu_modal clear">
+              <ul>
+                <li></li>
+              </ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+            </div>
+          </li>
+          <li>BUY</li>
+        </ul>
+      </li>
+
+      <li class="etc">
+        <span>SPECIAL OFFER</span>
+        <span>|</span>
+        <span>PURCAHSE THEME</span>
+      </li>
+
+
+    </ul>
+
+  </section>
+
+  <section class="banners">
+    <div class="cates wrap clear">
+      <ul class="cate"></ul>
+      <ul class="banner"></ul>
+    </div>
+  </section>
+
+  <footer></footer>
+  <script src="../js/main_backup181019.js"></script>
+</body>
+
+</html>
