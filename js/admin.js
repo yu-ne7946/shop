@@ -1,13 +1,14 @@
-// Initialize Firebase
-var config = {
+
+  // Initialize Firebase
+  var config = {
     apiKey: "AIzaSyC5WgMadKEtXXeuerEt6-1AKoXwBEeDuoo",
     authDomain: "yunera-mall.firebaseapp.com",
     databaseURL: "https://yunera-mall.firebaseio.com",
     projectId: "yunera-mall",
     storageBucket: "yunera-mall.appspot.com",
     messagingSenderId: "952860489315"
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);
 
 
 var db = firebase.database();

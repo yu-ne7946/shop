@@ -297,7 +297,7 @@ var sFn = function(data) {
                     }
                     html +='<ul class="fur_brand_panel clear">';
                     for(var j=0; j<furnitureBrand.length; j++){
-                       html += '<li><img src="'+furnitureBrand[j]+'" class="img w3-grayscale-max"></li>';
+                       html += '<li><img src="'+furnitureBrand[j]+'" class="img w3-grayscale-max w3-opacity"></li>';
                     }
                     html += '</ul>'
 				}
