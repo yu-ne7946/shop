@@ -354,6 +354,14 @@ $(".banners").mousemove(function(evt){
 	$(this).find(".ban_img").css("transform", "translate("+mX+"px, "+mY+"px)");
 });
 
+/***Featured */
+$(".featured_item").hover(function(){
+    $(this).find("div").stop().animate({"bottom":0},200);
+    $(this).find("img").css({"animation-name":"featuredAni"});
+},function(){
+    $(this).find("div").stop().animate({"bottom":"-3rem"},200);
+    $(this).find("img").css({"animation-name":"featuredAniBack"});
+});
 
 /* 
 $(".banner").mousemove(function(evt){
@@ -423,3 +431,36 @@ $("footer > div").click(function(){
 	goSite('http://daum.net');
 });
 */
+
+ 
+/***Featured Products */
+var prdNum = 0; /** 클릭할 때 내 값을 다른 애한테 줘야할 때  */
+$(".prd_nav > li").click(function(){
+    prdNum = $(this).index(); /**index는 값을 가져올 때 */
+    $(".prd_nav > li").css({"color":"#666"});
+    $(".prd_nav div").css({"width":0}); /**모든것이 사라지고 연해짐  */
+    $(this).css({"color":"#222"}); /**클릭한 나만  */
+    $(this).children("div").css({"width":"100%"});
+});
+$(".prd_nav > li").hover(function(){
+   if($(this).index() != prdNum){
+    $(this).css({"color":"#222"}); /**클릭한 나만  */
+    $(this).children("div").stop().animate({"width":"100%"},100);
+   }
+},function(){
+    if($(this).index() != prdNum){
+        $(this).css({"color":"#666"}); /**클릭한 나만  */
+        $(this).children("div").stop().animate({"width":"0"},100);
+    }
+
+});
+$(".prd_nav > li").eq(0).trigger("click"); /**eq는 값을 선택할 때 */
+
+$(".prd").hover(function(){
+    $(this).children(".prd_hover").stop().fadeIn(300)
+ $(this).children(".prd_hover").children(".prd_img").children("img").css({"animation-name":"prdImg"})
+    },function(){
+ $(this).children(".prd_hover").stop().fadeOut(300,function(){
+
+ });
+})
