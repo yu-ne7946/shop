@@ -1,13 +1,13 @@
 /***이미지 로더 ***/
 $('body').imagesLoaded()
-  .done( function( instance ) {
-      $(".loader").hide(0);
-    console.log('all images successfully loaded');
-  })
-  .progress( function( instance, image ) {
-    var result = image.isLoaded ? 'loaded' : 'broken';
-    console.log( 'image is ' + result + ' for ' + image.img.src );
-  });
+    .done(function (instance) {
+        $(".loader").hide(0);
+        console.log('all images successfully loaded');
+    })
+    .progress(function (instance, image) {
+        var result = image.isLoaded ? 'loaded' : 'broken';
+        console.log('image is ' + result + ' for ' + image.img.src);
+    });
 
 
 // Initialize Firebase
@@ -221,103 +221,103 @@ $.ajax({
     },
     error: function (xhr, status, error) {
         alert("통신이 원할하지 않습니다.\n잠시 후 다시 시도해 주세요.");
-    
+
     }
 });
 
 
 
 
- /***왼쪽 카테고리 패널0번(furniture)***/
- var furniture = [];
- furniture[0] = [];
- furniture[1] = [];
- furniture[2] = [];
- furniture[3] = [];
- furniture[0][0]="../img/best/item_1.jpg"
- furniture[1][0]="../img/best/item_2.jpg"
- furniture[2][0]="../img/best/item_3.jpg"
- furniture[3][0]="../img/best/item_4.jpg"
- furniture[0][1]="CLOCKS";
- furniture[1][1]="TABLETOP";
- furniture[2][1]="KITCHEN";
- furniture[3][1]="LIGHTING";
- furniture[0][2]="Mantel Clocks";
- furniture[1][2]="Pepper Shakers";
- furniture[2][2]="Oil Vineager Sets";
- furniture[3][2]="Interior Lighting";
- furniture[0][3]="Anniversary Clocks";
- furniture[1][3]="Spice Jars";
- furniture[2][3]="Bottle Racks";
- furniture[3][3]="Celling Lamps";
- furniture[0][4]="Wall Clocks";
- furniture[1][4]="Dish Drainers";
- furniture[2][4]="Chopping Boards";
- furniture[3][4]="Wall Lamps";
- furniture[0][5]="Wall Clocks";
- furniture[1][5]="Cocktail Shkers";
- furniture[2][5]="Vacuum Flasks";
- furniture[3][5]="Floor Lamps";
- furniture[0][6]="Travel and Alarm";
- furniture[1][6]="Utensil Holders";
- furniture[2][6]="Utensil Holders";
- furniture[3][6]="Celling Lamps";
+/***왼쪽 카테고리 패널0번(furniture)***/
+var furniture = [];
+furniture[0] = [];
+furniture[1] = [];
+furniture[2] = [];
+furniture[3] = [];
+furniture[0][0] = "../img/best/item_1.jpg"
+furniture[1][0] = "../img/best/item_2.jpg"
+furniture[2][0] = "../img/best/item_3.jpg"
+furniture[3][0] = "../img/best/item_4.jpg"
+furniture[0][1] = "CLOCKS";
+furniture[1][1] = "TABLETOP";
+furniture[2][1] = "KITCHEN";
+furniture[3][1] = "LIGHTING";
+furniture[0][2] = "Mantel Clocks";
+furniture[1][2] = "Pepper Shakers";
+furniture[2][2] = "Oil Vineager Sets";
+furniture[3][2] = "Interior Lighting";
+furniture[0][3] = "Anniversary Clocks";
+furniture[1][3] = "Spice Jars";
+furniture[2][3] = "Bottle Racks";
+furniture[3][3] = "Celling Lamps";
+furniture[0][4] = "Wall Clocks";
+furniture[1][4] = "Dish Drainers";
+furniture[2][4] = "Chopping Boards";
+furniture[3][4] = "Wall Lamps";
+furniture[0][5] = "Wall Clocks";
+furniture[1][5] = "Cocktail Shkers";
+furniture[2][5] = "Vacuum Flasks";
+furniture[3][5] = "Floor Lamps";
+furniture[0][6] = "Travel and Alarm";
+furniture[1][6] = "Utensil Holders";
+furniture[2][6] = "Utensil Holders";
+furniture[3][6] = "Celling Lamps";
 
- var furnitureBrand = [];
- furnitureBrand[0]="../img/main/brand-alessi.png";
- furnitureBrand[1]="../img/main/brand-Eva-Solo.png";
- furnitureBrand[2]="../img/main/brand-PackIt.png";
- furnitureBrand[3]="../img/main/brand-witra.png";
+var furnitureBrand = [];
+furnitureBrand[0] = "../img/main/brand-alessi.png";
+furnitureBrand[1] = "../img/main/brand-Eva-Solo.png";
+furnitureBrand[2] = "../img/main/brand-PackIt.png";
+furnitureBrand[3] = "../img/main/brand-witra.png";
 
- 
+
 /***** 왼쪽 카테고리 생성 *****/
 
-var sFn = function(data) {
-	if(data.result) {
-		for(var i=0, html='', rs; i<data.result.cates.length; i++) {
-			rs = data.result.cates[i];
-			html = '<li>';
-			html+= '<span class="'+rs.icon+'"></span>';
-			html+= '<a href="'+rs.link+'"><span>'+rs.title+'</span></a>';
-			if(rs.ajax != '') {
-				html += '<span class="fas fa-angle-right"></span>';
-				html+= '<div class="cate_panel clear">';
-				/***** 패널 생성.시작 *****/
-				if(i==0) {
-					for(var j=0; j<furniture.length; j++) {
-						html+= '<ul id="fur_panel'+j+'" class="fur_panel">';
-						html+= '<li><img src="'+furniture[j][0]+'" class="img"></li>';
-						html+= '<li>'+furniture[j][1]+'</li>';
-						html+= '<li>'+furniture[j][2]+'</li>';
-						html+= '<li>'+furniture[j][3]+'</li>';
-						html+= '<li>'+furniture[j][4]+'</li>';
-						html+= '<li>'+furniture[j][5]+'</li>';
-						html+= '<li>'+furniture[j][6]+'</li>';
-						html+= '</ul>';
+var sFn = function (data) {
+    if (data.result) {
+        for (var i = 0, html = '', rs; i < data.result.cates.length; i++) {
+            rs = data.result.cates[i];
+            html = '<li>';
+            html += '<span class="' + rs.icon + '"></span>';
+            html += '<a href="' + rs.link + '"><span>' + rs.title + '</span></a>';
+            if (rs.ajax != '') {
+                html += '<span class="fas fa-angle-right"></span>';
+                html += '<div class="cate_panel clear">';
+                /***** 패널 생성.시작 *****/
+                if (i == 0) {
+                    for (var j = 0; j < furniture.length; j++) {
+                        html += '<ul id="fur_panel' + j + '" class="fur_panel">';
+                        html += '<li><img src="' + furniture[j][0] + '" class="img"></li>';
+                        html += '<li>' + furniture[j][1] + '</li>';
+                        html += '<li>' + furniture[j][2] + '</li>';
+                        html += '<li>' + furniture[j][3] + '</li>';
+                        html += '<li>' + furniture[j][4] + '</li>';
+                        html += '<li>' + furniture[j][5] + '</li>';
+                        html += '<li>' + furniture[j][6] + '</li>';
+                        html += '</ul>';
                     }
-                    html +='<ul class="fur_brand_panel clear">';
-                    for(var j=0; j<furnitureBrand.length; j++){
-                       html += '<li><img src="'+furnitureBrand[j]+'" class="img w3-grayscale-max w3-opacity"></li>';
+                    html += '<ul class="fur_brand_panel clear">';
+                    for (var j = 0; j < furnitureBrand.length; j++) {
+                        html += '<li><img src="' + furnitureBrand[j] + '" class="img w3-grayscale-max w3-opacity"></li>';
                     }
                     html += '</ul>'
-				}
-				/***** 패널 생성.종료 *****/
-				html+= '</div>';
-			}
-			html+= '</li>'
-			$(".banners .cate").append(html);
+                }
+                /***** 패널 생성.종료 *****/
+                html += '</div>';
+            }
+            html += '</li>'
+            $(".banners .cate").append(html);
         }
-        $(".cate > li").hover(function(){
+        $(".cate > li").hover(function () {
             $(this).find(".cate_panel").show();
-        },function(){
+        }, function () {
             $(this).find(".cate_panel").hide();
         });
-        $(".fur_brand_panel img").hover(function(){
-          $(this).removeClass("w3-grayscale-max w3-opacity");
-        },function(){
-        $(this).addClass("w3-grayscale-max w3-opacity");
+        $(".fur_brand_panel img").hover(function () {
+            $(this).removeClass("w3-grayscale-max w3-opacity");
+        }, function () {
+            $(this).addClass("w3-grayscale-max w3-opacity");
         });
-	}
+    }
 }
 var cateAjax = new Ajax("../json/cate_left.json");
 //cateAjax.addData({chk:0});
@@ -332,35 +332,43 @@ $(this).children("div").each(function(i){
  */
 
 var banNow = 0;
-$(".banners .rt_arrow").click(function(){
-	$(".banner").children("li").hide();
-	$(".banner").children("li").eq(banNow).show();
-	$(".banner").children("li").eq(banNow).children(".ban_img").addClass("img_ani");
-	$(".banner").children("li").eq(banNow).children("div").each(function(i){
-		$(this).css("animation-delay", i/5+"s").addClass("ban_ani");
-	});
-	if(banNow == 2) banNow = -1;
-	banNow++;
+$(".banners .rt_arrow").click(function () {
+    $(".banner").children("li").hide();
+    $(".banner").children("li").eq(banNow).show();
+    $(".banner").children("li").eq(banNow).children(".ban_img").addClass("img_ani");
+    $(".banner").children("li").eq(banNow).children("div").each(function (i) {
+        $(this).css("animation-delay", i / 5 + "s").addClass("ban_ani");
+    });
+    if (banNow == 2) banNow = -1;
+    banNow++;
 }).trigger("click");
 
-$(".banners").mousemove(function(evt){
-	var delta = 50;
-	var cX = evt.clientX;
-	var cY = evt.clientY;
-	var iX = $(this).find(".ban_img").width()/2;
-	var iY = $(this).find(".ban_img").height()/2;
-	var mX = (iX - cX)/delta;
-	var mY = (iY - cY)/delta;
-	$(this).find(".ban_img").css("transform", "translate("+mX+"px, "+mY+"px)");
+$(".banners").mousemove(function (evt) {
+    var delta = 50;
+    var cX = evt.clientX;
+    var cY = evt.clientY;
+    var iX = $(this).find(".ban_img").width() / 2;
+    var iY = $(this).find(".ban_img").height() / 2;
+    var mX = (iX - cX) / delta;
+    var mY = (iY - cY) / delta;
+    $(this).find(".ban_img").css("transform", "translate(" + mX + "px, " + mY + "px)");
 });
 
 /***Featured */
-$(".featured_item").hover(function(){
-    $(this).find("div").stop().animate({"bottom":0},200);
-    $(this).find("img").css({"animation-name":"featuredAni"});
-},function(){
-    $(this).find("div").stop().animate({"bottom":"-3rem"},200);
-    $(this).find("img").css({"animation-name":"featuredAniBack"});
+$(".featured_item").hover(function () {
+    $(this).find("div").stop().animate({
+        "bottom": 0
+    }, 200);
+    $(this).find("img").css({
+        "animation-name": "featuredAni"
+    });
+}, function () {
+    $(this).find("div").stop().animate({
+        "bottom": "-3rem"
+    }, 200);
+    $(this).find("img").css({
+        "animation-name": "featuredAniBack"
+    });
 });
 
 /* 
@@ -388,7 +396,7 @@ $(".banner").mousemove(function(evt){
     }());
     var bannereffect = new Banner(".banjs",".ban_img"); */
 
-   
+
 /*
 function modalMake1() {
 	var html = '';
@@ -432,36 +440,157 @@ $("footer > div").click(function(){
 });
 */
 
- 
-/***Featured Products */
-var prdNum = 0;
-$(".prd_nav > li").click(function(){
-	prdNum = $(this).index();
-	$(".prd_nav > li").css({"color":"#666"});
-	$(".prd_nav div").css({"width":0});
-	$(this).css({"color":"#222"});
-	$(this).children("div").css({"width":"100%"});
+$(".featured_item").hover(function(){
+	$(this).find("div").stop().animate({"bottom":0}, 200);
+	$(this).find("img").css({"animation-name":"featuredAni"});
+}, function(){
+	$(this).find("div").stop().animate({"bottom":"-3rem"}, 200);
+	$(this).find("img").css({"animation-name":"featuredAniBack"});
 });
-$(".prd_nav > li").hover(function(){
-	if($(this).index() != prdNum) {
-		$(this).css({"color":"#222"});
-		$(this).children("div").stop().animate({"width":"100%"}, 100);
-	}
-},function(){
-	if($(this).index() != prdNum) {
-		$(this).css({"color":"#666"});
-		$(this).children("div").stop().animate({"width":0}, 100);
-	}
-});
-$(".prd_nav > li").eq(0).trigger("click");
 
-$(".prd").hover(function(){
-	$(this).children(".prd_hover").stop().fadeIn(300);
-}, function(){
-	$(this).children(".prd_hover").stop().fadeOut(300);
-});
-$(".prd_hover_img").hover(function(){
-	$(this).stop().animate({"opacity":1}, 200).css({"animation-name":"prdImg"});
-}, function(){
-	$(this).stop().animate({"opacity":0}, 200).css({"animation-name":"prdImgBack"});
-});
+/***** Featured Products *****/
+var prdNum = 0;
+
+
+
+
+/* $.ajax({
+    url : "../json/prds.json",
+    type : "post", /**정보를 가져오는 방식 
+    dataType : "json",
+    data : {}, /**내가 전달해주는 데이터  
+    success : function(data){
+        console.log(data);
+    }
+    error:function(xhr,status,error){
+
+    }
+
+}) 
+
+위는 함수 방식 아래는 Ajax.js를 이용한 객체 방식 
+*/
+
+// {"result":[{"title":"best","data":[{},{}]},{},{}]} JSON 데이타 구조 
+
+
+var prds = new Ajax("../json/prds.json");
+prds.send(resultFn);
+function resultFn(data) {
+	var html = '';
+	var li;
+	for(var i=0; i<data.result.length; i++){
+		html = '<ul class="prd_wrap clear">';
+		for(var j=0; j<data.result[i].data.length; j++) {
+			li = data.result[i].data[j];
+			html+= '<li class="prd">';
+			html+= '<div class="prd_img">';
+			html+= '<img src="'+li.img[0]+'" class="img">';
+			html+= '</div>';
+			html+= '<div class="prd_tit">'+li.title+'</div>';
+			html+= '<div class="prd_cate">'+li.cate+'</div>';
+			html+= '<div class="prd_price">';
+			html+= '<span>'+li.price[0]+'</span>';
+			html+= '<span>'+li.price[1]+'</span>';
+			html+= '</div>';
+			html+= '<div class="prd_hover">';
+			html+= '<div class="prd_img">';
+			html+= '<img src="'+li.img[1]+'" class="img prd_hover_img">';
+			html+= '</div>';
+			html+= '<ul>';
+			html+= '<li class="prd_compare">';
+			html+= '<div>';
+			html+= '<img src="../img/icon/baseline-compare_arrows-24px.svg">';
+			html+= '</div>';
+			html+= '</li>';
+			html+= '<li class="prd_tit">'+li.title+'</li>';
+			html+= '<li class="prd_cate">'+li.cate+'</li>';
+			html+= '<li class="prd_price">';
+			html+= '<span>'+li.price[0]+'</span>';
+			html+= '<span>'+li.price[1]+'</span>';
+			html+= '</li>';
+			html+= '<li class="prd_cont">';
+			html+= li.cont;
+			html+= '<div><i class="fa fa-ellipsis-h"></i></div>';
+			html+= '</li>';
+			html+= '<li class="prd_detail clear">';
+			html+= '<div>';
+			html+= '<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">';
+			html+= '<img src="../img/icon/baseline-favorite_border-24px.svg">';
+			html+= '</a>';
+			html+= '</div>';
+			html+= '<ul>';
+			html+= '<li>VIEW PRODUCTS</li>';
+			html+= '<li><i class="fa fa-shopping-cart"></i></li>';
+			html+= '</ul>';
+			html+= '<div>';
+			html+= '<a href="#" data-toggle="tooltip" data-placement="top" title="Search">';
+			html+= '<img src="../img/icon/baseline-search-24px.svg">';
+			html+= '</a>';
+			html+= '</div>';
+			html+= '</li>';
+			html+= '</ul>';
+			html+= '</div>';
+			if(li.pct > 0) html+= '<div class="prd_pop">-'+li.pct+'%</div>';
+			html+= '</li>';
+		}
+		html+= '</ul>';
+		$(".prd_out_wrap").append(html);
+    }
+    //생성완료된 후 이벤트 처리
+    $(".prd_nav > li").click(function(){
+        $(".prd_wrap").eq(prdNum).stop().animate({"top":"5rem", "opacity":0}, 500, function(){
+            $(this).css({"display":"none"});
+        });
+        prdNum = $(this).index();
+        $(".prd_wrap").eq(prdNum).css({"display":"block"}).stop().animate({"top":0, "opacity":1}, 500);
+        $(".prd_nav > li").css({"color":"#666"});
+        $(".prd_nav div").css({"width":0});
+        $(this).css({"color":"#222"});
+        $(this).children("div").css({"width":"100%"});
+    });
+    $(".prd_nav > li").hover(function(){
+        if($(this).index() != prdNum) {
+            $(this).css({"color":"#222"});
+            $(this).children("div").stop().animate({"width":"100%"}, 100);
+        }
+    },function(){
+        if($(this).index() != prdNum) {
+            $(this).css({"color":"#666"});
+            $(this).children("div").stop().animate({"width":0}, 100);
+        }
+    });
+    $(".prd_nav > li").eq(0).trigger("click");
+
+    $(".prd").hover(function(){
+        $(this).children(".prd_hover").stop().fadeIn(300);
+        $(this).find(".prd_compare").find("div").stop().animate({"top":"-43px"}, 300);	
+        if($(this).find(".prd_cont")[0].offsetHeight < $(this).find(".prd_cont")[0].scrollHeight) {
+            console.log("overflow");
+            $(this).find(".prd_cont").children("div").stop().animate({"bottom":0}, 200);
+            $(this).find(".prd_cont").children("div").click(function(){
+                $(this).parent().css({"height":"auto"});
+                $(this).hide(0);
+            });
+        }
+        $(this).find(".prd_detail").children("ul").hover(function(){
+            $(this).children(":first-child").stop().animate({"margin-top":"-38px"}, 200);
+        }, function(){
+            $(this).children(":first-child").stop().animate({"margin-top":0}, 200);
+        });
+    }, function(){
+        $(this).children(".prd_hover").stop().fadeOut(300);
+        $(this).find(".prd_compare").find("div").stop().animate({"top":0}, 300);
+        if($(this).find(".prd_cont")[0].offsetHeight < $(this).find(".prd_cont")[0].scrollHeight) {
+            $(this).find(".prd_cont").children("div").stop().animate({"bottom":"-20px"}, 200);
+        }
+    });
+    $(".prd_hover_img").hover(function(){
+        $(this).stop().animate({"opacity":1}, 200).css({"animation-name":"prdImg"});
+    }, function(){
+        $(this).stop().animate({"opacity":0}, 200).css({"animation-name":"prdImgBack"});
+    });
+    
+    $('[data-toggle="tooltip"]').tooltip(); 
+    
+}
