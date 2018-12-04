@@ -1,3 +1,17 @@
+
+/***** 자동 높이 계산 함수 *****/
+function autoHeight() {
+	$(".hei-wrap").imagesLoaded().done(heiCalc);
+	$(window).resize(heiCalc);
+	function heiCalc() {
+		$(".hei-wrap").each(function(){
+			$(this).height($(this).find(".hei-elem").height());
+		});	
+	}
+}
+autoHeight();
+
+
 /***이미지 로더 ***/
 $('body').imagesLoaded()
     .done(function (instance) {
@@ -449,7 +463,7 @@ $(".featured_item").hover(function(){
 });
 
 /***** Featured Products *****/
-var prdNum = 0;
+
 
 
 
@@ -474,6 +488,7 @@ var prdNum = 0;
 // {"result":[{"title":"best","data":[{},{}]},{},{}]} JSON 데이타 구조 
 
 
+var prdNum = 0;
 var prds = new Ajax("../json/prds.json");
 prds.send(resultFn);
 function resultFn(data) {
@@ -500,7 +515,7 @@ function resultFn(data) {
 			html+= '<ul>';
 			html+= '<li class="prd_compare">';
 			html+= '<div>';
-			html+= '<img src="../img/icon/baseline-compare_arrows-24px.svg">';
+			html+= '<img src="../img/main/baseline-compare_arrows-24px.svg">';
 			html+= '</div>';
 			html+= '</li>';
 			html+= '<li class="prd_tit">'+li.title+'</li>';
@@ -516,7 +531,7 @@ function resultFn(data) {
 			html+= '<li class="prd_detail clear">';
 			html+= '<div>';
 			html+= '<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">';
-			html+= '<img src="../img/icon/baseline-favorite_border-24px.svg">';
+			html+= '<img src="../img/main/baseline-favorite_border-24px.svg">';
 			html+= '</a>';
 			html+= '</div>';
 			html+= '<ul>';
@@ -525,7 +540,7 @@ function resultFn(data) {
 			html+= '</ul>';
 			html+= '<div>';
 			html+= '<a href="#" data-toggle="tooltip" data-placement="top" title="Search">';
-			html+= '<img src="../img/icon/baseline-search-24px.svg">';
+			html+= '<img src="../img/main/baseline-search-24px.svg">';
 			html+= '</a>';
 			html+= '</div>';
 			html+= '</li>';
@@ -536,61 +551,128 @@ function resultFn(data) {
 		}
 		html+= '</ul>';
 		$(".prd_out_wrap").append(html);
-    }
-    //생성완료된 후 이벤트 처리
-    $(".prd_nav > li").click(function(){
-        $(".prd_wrap").eq(prdNum).stop().animate({"top":"5rem", "opacity":0}, 500, function(){
-            $(this).css({"display":"none"});
-        });
-        prdNum = $(this).index();
-        $(".prd_wrap").eq(prdNum).css({"display":"block"}).stop().animate({"top":0, "opacity":1}, 500);
-        $(".prd_nav > li").css({"color":"#666"});
-        $(".prd_nav div").css({"width":0});
-        $(this).css({"color":"#222"});
-        $(this).children("div").css({"width":"100%"});
-    });
-    $(".prd_nav > li").hover(function(){
-        if($(this).index() != prdNum) {
-            $(this).css({"color":"#222"});
-            $(this).children("div").stop().animate({"width":"100%"}, 100);
-        }
-    },function(){
-        if($(this).index() != prdNum) {
-            $(this).css({"color":"#666"});
-            $(this).children("div").stop().animate({"width":0}, 100);
-        }
-    });
-    $(".prd_nav > li").eq(0).trigger("click");
-
-    $(".prd").hover(function(){
-        $(this).children(".prd_hover").stop().fadeIn(300);
-        $(this).find(".prd_compare").find("div").stop().animate({"top":"-43px"}, 300);	
-        if($(this).find(".prd_cont")[0].offsetHeight < $(this).find(".prd_cont")[0].scrollHeight) {
-            console.log("overflow");
-            $(this).find(".prd_cont").children("div").stop().animate({"bottom":0}, 200);
-            $(this).find(".prd_cont").children("div").click(function(){
-                $(this).parent().css({"height":"auto"});
-                $(this).hide(0);
-            });
-        }
-        $(this).find(".prd_detail").children("ul").hover(function(){
-            $(this).children(":first-child").stop().animate({"margin-top":"-38px"}, 200);
-        }, function(){
-            $(this).children(":first-child").stop().animate({"margin-top":0}, 200);
-        });
-    }, function(){
-        $(this).children(".prd_hover").stop().fadeOut(300);
-        $(this).find(".prd_compare").find("div").stop().animate({"top":0}, 300);
-        if($(this).find(".prd_cont")[0].offsetHeight < $(this).find(".prd_cont")[0].scrollHeight) {
-            $(this).find(".prd_cont").children("div").stop().animate({"bottom":"-20px"}, 200);
-        }
-    });
-    $(".prd_hover_img").hover(function(){
-        $(this).stop().animate({"opacity":1}, 200).css({"animation-name":"prdImg"});
-    }, function(){
-        $(this).stop().animate({"opacity":0}, 200).css({"animation-name":"prdImgBack"});
-    });
-    
-    $('[data-toggle="tooltip"]').tooltip(); 
-    
+		$(".prd_out_wrap").imagesLoaded().done( function( instance ) {
+			$(".prd_out_wrap").css({"height":$(".prd_wrap").eq(0).height()+"px"});
+		});
+	}
+	//생성완료된 후 이벤트 처리
+	$(".prd_nav > li").click(function(){
+		$(".prd_out_wrap").css({"height":$(".prd_wrap").eq(prdNum).height()+"px"});
+		$(".prd_wrap").eq(prdNum).stop().animate({"top":"5rem", "opacity":0}, 500, function(){
+			$(this).css({"display":"none"});	
+		});
+		prdNum = $(this).index();
+		$(".prd_wrap").eq(prdNum).css({"display":"block"}).stop().animate({"top":0, "opacity":1}, 500);
+		$(".prd_nav > li").css({"color":"#666"});
+		$(".prd_nav div").css({"width":0});
+		$(this).css({"color":"#222"});
+		$(this).children("div").css({"width":"100%"});
+	});
+	$(".prd_nav > li").hover(function(){
+		if($(this).index() != prdNum) {
+			$(this).css({"color":"#222"});
+			$(this).children("div").stop().animate({"width":"100%"}, 100);
+		}
+	},function(){
+		if($(this).index() != prdNum) {
+			$(this).css({"color":"#666"});
+			$(this).children("div").stop().animate({"width":0}, 100);
+		}
+	});
+	$(".prd_nav > li").eq(0).trigger("click");
+	
+	$(".prd").hover(function(){
+		$(this).children(".prd_hover").stop().fadeIn(300);
+		$(this).find(".prd_compare").find("div").stop().animate({"top":"-43px"}, 300);	
+		if($(this).find(".prd_cont")[0].offsetHeight < $(this).find(".prd_cont")[0].scrollHeight) {
+			console.log("overflow");
+			$(this).find(".prd_cont").children("div").stop().animate({"bottom":0}, 200);
+			$(this).find(".prd_cont").children("div").click(function(){
+				$(this).parent().css({"height":"auto"});
+				$(this).hide(0);
+			});
+		}
+		$(this).find(".prd_detail").children("ul").hover(function(){
+			$(this).children(":first-child").stop().animate({"margin-top":"-38px"}, 200);
+		}, function(){
+			$(this).children(":first-child").stop().animate({"margin-top":0}, 200);
+		});
+	}, function(){
+		$(this).children(".prd_hover").stop().fadeOut(300);
+		$(this).find(".prd_compare").find("div").stop().animate({"top":0}, 300);
+		if($(this).find(".prd_cont")[0].offsetHeight < $(this).find(".prd_cont")[0].scrollHeight) {
+			$(this).find(".prd_cont").children("div").stop().animate({"bottom":"-20px"}, 200);
+		}
+	});
+	$(".prd_hover_img").hover(function(){
+		$(this).stop().animate({"opacity":1}, 200).css({"animation-name":"prdImg"});
+	}, function(){
+		$(this).stop().animate({"opacity":0}, 200).css({"animation-name":"prdImgBack"});
+	});
+	$('[data-toggle="tooltip"]').tooltip(); 
 }
+
+
+
+/**하단배너 */
+/***** 하단 배너 *****/
+var fNum = 0;	//현재의 index
+var fLen = $(".fban > li").length - 1;	//마지막 index (예:5개라면 0,1,2,3,4 -> 4)
+var duration = 500;	//animate 속도
+$(window).resize(function(){
+	//본 작업을 진행하는 이유는 absolute 되어 있는 객체의 높이를 계산하기 위해서..
+	$(".fban").height($(".fban > li").eq(fNum).height() + 30);
+}).trigger("resize");
+//최초 한번 실행
+$(".fban > li").each(function(i){
+	$('<i class="fa-circle"></i>').appendTo("#fban_pager").click(function(){
+		var iNum = $(this).index();
+		if(fNum < iNum) {
+			$(".fban > li").eq(fNum + 1).hide();
+			$(".fban > li").eq(iNum).show().css({"left":"100%"});
+			fNum = iNum;
+			fbanAni("-100%");
+		}
+		else if(fNum > iNum) {
+			$(".fban > li").eq(fNum - 1).hide();
+			$(".fban > li").eq(iNum).show().css({"left":"-100%"});
+			fNum = iNum;
+			fbanAni("100%");
+		}
+	});
+});
+fbanPos();
+function fbanAni(val) {
+	$(".fban > li").eq(fNum).css({"animation-name":"fbanAni", "animation-duration":duration*0.001+"s"});
+	$(".fban").stop().animate({"left":val}, duration, fbanPos);
+}
+function fbanPos() {
+	$(".fban").height($(".fban > li").eq(fNum).height() + 30);
+	$("#fban_pager > i").removeClass("fas").addClass("far");
+	$("#fban_pager > i").eq(fNum).removeClass("far").addClass("fas");
+	$(".fban > li").hide().css({"animation-name":""});
+	$(".fban").css({"left":0});
+	$(".fban > li").eq(fNum).show().css({"left":0});
+	if(fNum == 0) {
+		$(".fban > li").eq(fLen).show().css({"left":"-100%"});
+		$(".fban > li").eq(1).show().css({"left":"100%"});
+	}
+	else if(fNum == fLen) {
+		$(".fban > li").eq(fNum - 1).show().css({"left":"-100%"});
+		$(".fban > li").eq(0).show().css({"left":"100%"});
+	}
+	else {
+		$(".fban > li").eq(fNum - 1).show().css({"left":"-100%"});
+		$(".fban > li").eq(fNum + 1).show().css({"left":"100%"});
+	}
+}
+$("#fban_lt").click(function(){
+	if(fNum == fLen) fNum = 0;
+	else fNum++;
+	fbanAni("-100%");
+});
+$("#fban_rt").click(function(){
+	if(fNum == 0) fNum = fLen;
+	else fNum--;
+	fbanAni("100%");
+});
