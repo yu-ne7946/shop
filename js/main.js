@@ -368,6 +368,8 @@ $(".banners").mousemove(function (evt) {
     $(this).find(".ban_img").css("transform", "translate(" + mX + "px, " + mY + "px)");
 });
 
+
+
 /***Featured */
 $(".featured_item").hover(function () {
     $(this).find("div").stop().animate({
@@ -384,6 +386,15 @@ $(".featured_item").hover(function () {
         "animation-name": "featuredAniBack"
     });
 });
+
+/* $(".featured_item").hover(function(){
+	$(this).find("div").stop().animate({"bottom":0}, 200);
+	$(this).find("img").css({"animation-name":"featuredAni"});
+}, function(){
+	$(this).find("div").stop().animate({"bottom":"-3rem"}, 200);
+	$(this).find("img").css({"animation-name":"featuredAniBack"});
+}); */
+
 
 /* 
 $(".banner").mousemove(function(evt){
@@ -454,13 +465,6 @@ $("footer > div").click(function(){
 });
 */
 
-$(".featured_item").hover(function(){
-	$(this).find("div").stop().animate({"bottom":0}, 200);
-	$(this).find("img").css({"animation-name":"featuredAni"});
-}, function(){
-	$(this).find("div").stop().animate({"bottom":"-3rem"}, 200);
-	$(this).find("img").css({"animation-name":"featuredAniBack"});
-});
 
 /***** Featured Products *****/
 
@@ -515,7 +519,7 @@ function resultFn(data) {
 			html+= '<ul>';
 			html+= '<li class="prd_compare">';
 			html+= '<div>';
-			html+= '<img src="../img/main/baseline-compare_arrows-24px.svg">';
+			html+= '<img src="../img/icon/baseline-compare_arrows-24px.svg">';
 			html+= '</div>';
 			html+= '</li>';
 			html+= '<li class="prd_tit">'+li.title+'</li>';
@@ -531,7 +535,7 @@ function resultFn(data) {
 			html+= '<li class="prd_detail clear">';
 			html+= '<div>';
 			html+= '<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">';
-			html+= '<img src="../img/main/baseline-favorite_border-24px.svg">';
+			html+= '<img src="../img/icon/baseline-favorite_border-24px.svg">';
 			html+= '</a>';
 			html+= '</div>';
 			html+= '<ul>';
@@ -540,7 +544,7 @@ function resultFn(data) {
 			html+= '</ul>';
 			html+= '<div>';
 			html+= '<a href="#" data-toggle="tooltip" data-placement="top" title="Search">';
-			html+= '<img src="../img/main/baseline-search-24px.svg">';
+			html+= '<img src="../img/icon/baseline-search-24px.svg">';
 			html+= '</a>';
 			html+= '</div>';
 			html+= '</li>';
@@ -614,7 +618,6 @@ function resultFn(data) {
 
 
 
-/**하단배너 */
 /***** 하단 배너 *****/
 var fNum = 0;	//현재의 index
 var fLen = $(".fban > li").length - 1;	//마지막 index (예:5개라면 0,1,2,3,4 -> 4)
